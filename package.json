@@ -1,0 +1,19 @@
+{
+  "name": "reachout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dahi": "^1.0.9",
+    "js-csp": "^0.4.1"
+  },
+  "devDependencies": {
+    "babel": "^5.1.13",
+    "rethinkdb": "^2.0.0"
+  }
+}
