@@ -16,7 +16,7 @@ export function close(connection, ...args){
 }
 
 export function reconnect(connection, ...args){
-  return fromNodeCallback(done => connection.close(...args, done));
+  return fromNodeCallback(done => connection.reconnect(...args, done));
 }
 
 export function noReplyWait(connection){
