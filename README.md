@@ -4,6 +4,8 @@ reachout
 ---
 dahi + rethinkdb
 
+`npm install reachout`
+
 ```js
 // the basics
 
