@@ -43,13 +43,29 @@ export function live(query, connection){
 }
 
 
-import r from 'rethinkdb';
+// import r from 'rethinkdb';
 
-go(function*(){
-  var store = live(r.db('test').table('sample'), yield connect(r));
-  store.on('change', state => console.log(state));
-  while(true){
-    yield timeout(1000);
-    console.log('5s:', store());
-  }
-})
+// go(function*(){
+//   var store = live(r.db('test').table('sample'), yield connect(r));
+//   store.on('change', state => console.log(state));
+//   while(true){
+//     yield timeout(1000);
+//     console.log('5s:', store());
+//   }
+// })
+
+// // require('babel/polyfill');
+// var r = require('rethinkdb');
+
+// var cache = require('./cache.js'),
+//   live = cache.live;
+
+
+
+// r.connect(function(err, conn){
+//   var store = live(r.db('test').table('sample'), conn); 
+//   store.on('change', function(state) {console.log('changed:', state)});
+//   setInterval(function(){
+//     console.log('timed:', store())
+//   }, 1000)  
+// })
