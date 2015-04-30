@@ -13,7 +13,7 @@ dahi + rethinkdb
 go(function*(){
   var connection = yield connect(r, db);
   var cursor = yield run(r.db('mydb').table('mytable'), connection);
-  var records = yield into([], docs(cursor)))
+  var records = yield toArray(cursor)
   log(records);  
 })
 

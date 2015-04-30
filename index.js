@@ -4,7 +4,7 @@ import {fromNodeCallback} from 'dahi';
 import csp, {go, chan, put} from 'js-csp';
 
 export function connect(r, ...args){
-  return fromNodeCallback(done => r.connect(..args, done));
+  return fromNodeCallback(done => r.connect(...args, done));
 }
 
 export function run(query, connection){
@@ -38,6 +38,20 @@ export function docs(cursor){
     cursor.close();
     c.close();
   }
+  return c;
+}
+
+export function first(cursor){
+  var c = chan();
+  go(function*(){
+    let doc = yield fromNodeCallback(done => cursor.next(done));
+    if(doc){
+      yield put(c, doc);
+      cursor.close();
+      c.close();
+    }    
+  })
+  
   return c;
 }
 
