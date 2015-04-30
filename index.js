@@ -46,10 +46,10 @@ export function first(cursor){
   go(function*(){
     let doc = yield fromNodeCallback(done => cursor.next(done));
     if(doc){
-      yield put(c, doc);
-      cursor.close();
-      c.close();
-    }    
+      yield put(c, doc);      
+    } 
+    cursor.close();
+    c.close();   
   })
   
   return c;
